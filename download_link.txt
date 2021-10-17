@@ -1,0 +1,6 @@
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=180WgIzh0aV1Aayl_b1X7mIhVhDUcW3b1' -O vgg16_pretrained_features.pth
+
+
+wget --save-cookies cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1DDBQsoZ94N4NRKxZbwyEXt7Tz8KqgS_w' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/Code: \1\n/p'
+
+wget --load-cookies cookies.txt 'https://docs.google.com/uc?export=download&confirm=DE3e&id=1DDBQsoZ94N4NRKxZbwyEXt7Tz8KqgS_w' -O pose_model.pth

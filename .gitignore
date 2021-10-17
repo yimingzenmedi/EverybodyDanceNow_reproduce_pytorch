@@ -3,7 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# data
 data/source/images/
 data/source/test_head_ori/
 data/source/test_img/

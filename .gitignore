@@ -3,6 +3,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# data
+data/source/images/
+data/source/test_head_ori/
+data/source/test_img/
+data/source/test_label_ori/
+data/source/pose_source.npy
+data/target/images/
+data/target/train/
+data/target/pose.npy
+
 # C extensions
 *.so
 

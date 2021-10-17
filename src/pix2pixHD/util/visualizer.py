@@ -23,7 +23,9 @@ class Visualizer():
             import tensorflow as tf
             self.tf = tf
             self.log_dir = os.path.join(opt.checkpoints_dir, opt.name, 'logs')
-            self.writer = tf.summary.FileWriter(self.log_dir)
+            # self.writer = tf.summary.FileWriter(self.log_dir)
+            self.writer = tf.summary.create_file_writer(self.log_dir)
+
 
         if self.use_html:
             self.web_dir = os.path.join(opt.checkpoints_dir, opt.name, 'web')
@@ -98,9 +100,11 @@ class Visualizer():
     def plot_current_errors(self, errors, step):
         if self.tf_log:
             for tag, value in errors.items():
-                summary = self.tf.Summary(value=[self.tf.Summary.Value(tag=tag, simple_value=value)])
-                self.writer.add_summary(summary, step)
-
+                # summary = self.tf.Summary(value=[self.tf.Summary.Value(tag=tag, simple_value=value)])
+                # self.writer.add_summary(summary, step)
+                with self.writer.as_default():
+                    tf.summary.scalar(tag, value, step=step)
+                    self.writer.flush()
     # errors: same format as |errors| of plotCurrentErrors
     def print_current_errors(self, epoch, i, errors, t):
         message = '(epoch: %d, iters: %d, time: %.3f) ' % (epoch, i, t)

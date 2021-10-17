@@ -20,7 +20,8 @@ if len(os.listdir('./data/source/images'))<100:
     i = 0
     while (cap.isOpened()):
         flag, frame = cap.read()
-        if flag == False or i >= 1000:
+        # if flag == False or i >= 1000:
+        if flag == False or i >= 500:
             break
         cv2.imwrite(str(img_dir.joinpath('{:05}.png'.format(i))), frame)
         if i%100 == 0:
@@ -83,7 +84,8 @@ for idx in tqdm(range(len(os.listdir(str(img_dir))))):
     heatmap[:, :, :-1] = r_heatmap
     param = {'thre1': 0.1, 'thre2': 0.05, 'thre3': 0.5}
     label, cord = get_pose(param, heatmap, paf)
-    index = 13
+    # print(cord)
+    index = 13		# head point
     crop_size = 25
     try:
         head_cord = cord[index]

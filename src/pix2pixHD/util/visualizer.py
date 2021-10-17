@@ -4,6 +4,7 @@ import numpy as np
 import os
 import ntpath
 import time
+import tensorflow as tf
 from . import util
 from . import html
 import scipy.misc
@@ -11,6 +12,7 @@ try:
     from StringIO import StringIO  # Python 2.7
 except ImportError:
     from io import BytesIO         # Python 3.x
+
 
 class Visualizer():
     def __init__(self, opt):
@@ -20,7 +22,7 @@ class Visualizer():
         self.win_size = opt.display_winsize
         self.name = opt.name
         if self.tf_log:
-            import tensorflow as tf
+            # import tensorflow as tf
             self.tf = tf
             self.log_dir = os.path.join(opt.checkpoints_dir, opt.name, 'logs')
             # self.writer = tf.summary.FileWriter(self.log_dir)

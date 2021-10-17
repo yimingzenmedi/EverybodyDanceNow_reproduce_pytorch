@@ -12,6 +12,7 @@ data/source/pose_source.npy
 data/target/images/
 data/target/train/
 data/target/pose.npy
+data/vgg16_pretrained_features.pth
 
 # C extensions
 *.so
